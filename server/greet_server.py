@@ -1,13 +1,18 @@
 import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__),'..')))
+
+from pb2 import weather_pb2_grpc, weather_pb2
 from concurrent import futures
 import time
 import grpc
-import weather_pb2
-import weather_pb2_grpc
-from models.mongo_model import insert_city_doc
-from weather_pb2_grpc import WeatherServiceServicer
+
 import requests
 from dotenv import load_dotenv, dotenv_values
+
+from models.mongo_model import insert_city_doc
+
+
 load_dotenv()
 
 class WeatherServiceServicer(weather_pb2_grpc.WeatherServiceServicer):

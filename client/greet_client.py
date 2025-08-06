@@ -1,7 +1,8 @@
 from http.client import responses
-
-import weather_pb2
-import weather_pb2_grpc
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__),'..')))
+from pb2 import weather_pb2_grpc, weather_pb2
 import time
 import grpc
 

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather UI</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <style>
+        html{
+            display:flex;
+            justify-content : center;
+            height : 100%;
+        }
+        body{
+            display:flex;
+            justify-content : center;
+            align-items : center;
+        }
+        .index-title{
+            display : flex;
+            justify-content : center;
+            align-items : center;
+        }
+        .index-buttons{
+            display : flex;
+            justify-content : center;
+            align-items : center;
+        }
+        button {
+            margin: 5px;
+            padding: 8px 16px;
+            font-size: 16px;
+            border-radius : 5px;
+        }
+        canvas {
+            margin-top: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class = "main-container">
+        <div class="index-title">
+            <h1>Select a city:</h1>
+        </div>
+        <div class="index-buttons">
+            {% for city in cities %}
+                <button onclick="loadChart('{{ city }}')">{{ city }}</button>
+            {% endfor %}
+        </div>
+
+
+
+    <canvas id="weatherChart" width="900" height="400"></canvas>
+    </div>
+
+</body>
+</html>
